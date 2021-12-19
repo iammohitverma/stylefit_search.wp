@@ -1,0 +1,102 @@
+jQuery(document).ready(function() {
+    /**** header toggler hamburger ***/
+    jQuery("header .hamburger").click(function() {
+        jQuery(this).toggleClass("is-active");
+    });
+
+    debugger;
+    setTimeout(() => {
+        jQuery('.mob-slider > div ').slick({
+            dots: false,
+            infinite: false,
+            speed: 300,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: false,
+            arrows: false,
+            dots: false,
+            responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                dots: true,
+                autoplay: true,
+                autoplaySpeed: 3500
+                }
+            }
+            // You can unslick at a given breakpoint now by adding:
+            // settings: "unslick"
+            // instead of a settings object
+            ]
+        });    
+        
+    }, 3000);
+
+    if (window.matchMedia('(max-width: 992px)').matches){
+      jQuery (".menu-item-has-children a").click(function() {
+          jQuery (this).next(".sub-menu").slideToggle();
+      });
+    }
+});
+
+jQuery(document).ready(function(jQuery) {
+jQuery(document).ready(function(){
+//hide on refresh page
+            jQuery("#integrations, #introduction , #platform , #plans-and-pricing").hide();
+            jQuery("#files").addClass("active");
+//files and formats button
+        jQuery("#files").click(function(){
+            jQuery(".st-active a").removeClass("active");
+            jQuery(this).addClass("active");
+            jQuery("#integrations, #introduction, #platform, #plans-and-pricing").hide();
+            jQuery("#files-formats").show();
+        });
+//integrations button 
+        jQuery("#int").click(function(){
+            jQuery(".st-active a").removeClass("active");
+            jQuery(this).addClass("active");
+            jQuery("#files-formats, #introduction, #platform, #plans-and-pricing").hide();
+            jQuery("#integrations").show();
+        });
+
+//Introduction to 3D & AR button 
+        jQuery("#intro").click(function(){
+            jQuery(".st-active a").removeClass("active");
+            jQuery(this).addClass("active");
+            jQuery("#files-formats, #integrations, #platform, #plans-and-pricing").hide();
+            jQuery("#introduction").show();
+        });
+
+//Platform capabilities button 
+        jQuery("#plat").click(function(){
+            jQuery(".st-active a").removeClass("active");
+            jQuery(this).addClass("active");
+            jQuery("#files-formats, #integrations, #introduction, #plans-and-pricing").hide();
+            jQuery("#platform").show();
+        });
+
+//plans and pricing button 
+        jQuery("#plans").click(function(){
+            jQuery(".st-active a").removeClass("active");
+            jQuery(this).addClass("active");
+            jQuery("#files-formats, #integrations, #introduction, #platform").hide();
+            jQuery("#plans-and-pricing").show();
+        });
+    });
+});
